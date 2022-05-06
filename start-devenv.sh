@@ -20,11 +20,13 @@ Help()
    echo "<any>         Executes <any> command after starting up the container (e.g bash)"
 }
 
+echo "Starting Evidence with project root set to $(pwd)"
+
 case $1 in
     --help)
       Help
         ;;
     *)
-        docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm $IMAGE_TAG $@
+        docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --platform linux/amd64 --rm $IMAGE_TAG $@
         ;;
 esac
