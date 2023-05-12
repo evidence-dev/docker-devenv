@@ -76,3 +76,11 @@ docker build -t <image-name> .
 cd <path-to-your-evidence-project-root>
 docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm <image-name> <command-to-run>
 ```
+
+## Publishing the latest image to Docker Hub
+Currently the image is hosted on Dockerhub. To build and publish a new version, follow these steps
+1. Login to Dockerhub => `docker login`
+2. Build the image => `docker build -t evidencedev/devenv:latest .`
+3. Push the image to Dockerhub => `docker push evidencedev/devenv:latest`
+
+For login credentials, see `EvidenceDev Dockerhub Admin`.  This is setup under `udesh@evidence.dev` (didn't think to create a google group for this at the time e.g devs@evidence.dev - will do so in the future - feel free to use it in the meantime).
