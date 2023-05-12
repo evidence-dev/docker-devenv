@@ -83,4 +83,6 @@ Currently the image is hosted on Dockerhub. To build and publish a new version, 
 2. Build the image => `docker build -t evidencedev/devenv:latest .`
 3. Push the image to Dockerhub => `docker push evidencedev/devenv:latest`
 
-For login credentials, see `EvidenceDev Dockerhub Admin`.  This is setup under `udesh@evidence.dev` (didn't think to create a google group for this at the time e.g devs@evidence.dev - will do so in the future - feel free to use it in the meantime).
+For login credentials, see `EvidenceDev Dockerhub Admin` in 1password.  This is setup under `udesh@evidence.dev` (didn't think to create a google group for this at the time e.g devs@evidence.dev - will do so in the future - feel free to use it in the meantime). 
+
+We should consider hosting this in AWS with CD/CI setup to automatically publish new versions of the image from main
