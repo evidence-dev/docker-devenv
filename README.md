@@ -49,7 +49,7 @@ If you'd rather not type out the docker commands, you have the option of startin
 If you are not using DuckDB, and you have limited storage on your disk, you can use a smaller `devenv` image by replacing the `evidencedev/devenv:latest` image with `evidencedev/devenv-lite:latest` in the above commands.
 
 
-### Connecting to a Dababase from the Development Container
+### Connecting to a Database from the Development Container
 * You can setup your DB connection as [documented](https://docs.evidence.dev/core-concepts/data-sources/). However there are few caveats to note when using the Evidence development environment container.
     * If your database is hosted on your `host` machine, you'll have to ensure that the Database host is set to `host.docker.internal` either via the settings or your database config file (instead of `localhost`, `0.0.0.0`, etc).  For instance:
     ```
