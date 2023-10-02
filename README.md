@@ -4,7 +4,7 @@ The Evidence Docker Development Evironment (devenv) is avaiable on [Dockerhub](h
 
 An instance of an `devenv` image can be used as a development environment for Evidence projects using a mounted directory. Using this container allows end users to develop Evidence sites without the need for installing any toolchains besides `Docker`.
 
-This is the repo that builds the Evidence `devenv` images.
+This is the repo that builds the [Evidence `devenv` images](https://hub.docker.com/repositories/evidencedev).
 
 ## Using the Evidence Docker Development Environment
 
