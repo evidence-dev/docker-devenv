@@ -2,7 +2,7 @@ FROM sitespeedio/node:ubuntu-22.04-nodejs-18.16.0
 ARG WORKSPACE_DIR=/evidence-workspace 
 
 RUN apt-get update && apt-get install -y \
-        curl wget nano git xdg-utils && \
+    curl wget nano git xdg-utils && \
     npm install -g degit && \
     mkdir -p ${WORKSPACE_DIR} && \
     mkdir -p /evidence-bin && \

@@ -1,10 +1,10 @@
 # Docker Development Environment
 
-The Evidence Docker Development Evironment (devenv) is avaiable on [Dockerhub](https://hub.docker.com/repositories/evidencedev). 
+The Evidence Docker Development Evironment (devenv) is available on [Dockerhub](https://hub.docker.com/repositories/evidencedev). 
 
 An instance of an `devenv` image can be used as a development environment for Evidence projects using a mounted directory. Using this container allows end users to develop Evidence sites without the need for installing any toolchains besides `Docker`.
 
-This is the repo that builds the [Evidence `devenv` images](https://hub.docker.com/repositories/evidencedev).
+This repo contains the dockerfiles and the publishing action for [Evidence `devenv` images](https://hub.docker.com/repositories/evidencedev).
 
 ## Using the Evidence Docker Development Environment
 
@@ -34,8 +34,6 @@ Docker tools are installed using [Docker Desktop](https://www.docker.com/product
     # - You should see your site up when you point your browser to localhost:3000. 
     # - Any edits made in <path-to-your-evidence-project-root> should be reflected on the browser.
 ```
-
-Note: if you are running Evidence from a new Apple Silicon MacBook (or any machine with an `arm` chipset), you'll have to provide a `--platform linux/amd64` argument to Docker as well for emulation.
 
 ### Alternative running options
 
