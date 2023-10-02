@@ -1,15 +1,15 @@
 # Docker Development Environment
 
-The Evidence Docker Development Evironment (devenv) is available on [Dockerhub](https://hub.docker.com/repositories/evidencedev). 
+The Evidence Docker Development Evironment (devenv) image is available on [Docker Hub](https://hub.docker.com/repositories/evidencedev). 
 
-An instance of an `devenv` image can be used as a development environment for Evidence projects using a mounted directory. Using this container allows end users to develop Evidence sites without the need for installing any toolchains besides `Docker`.
+The `devenv` image can be used as a development environment for Evidence projects by running it as a container with a mounted directory. Utilizing this container allows developers to work on Evidence sites without the need to install any additional toolchains other than `Docker`. For instance, there is no necessity to install `npm` or `node`.
 
-This repo contains the dockerfiles and the publishing action for [Evidence `devenv` images](https://hub.docker.com/repositories/evidencedev).
+This repository contains the Dockerfiles and the publishing actions for the [Evidence `devenv` images](https://hub.docker.com/repositories/evidencedev).
 
 ## Using the Evidence Docker Development Environment
 
 ### Pre-requisites
-Docker tools are installed using [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended) OR using [binaries](https://docs.docker.com/engine/install/binaries/).
+Ensure the Docker tool chain is installed via [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended) OR using [binaries](https://docs.docker.com/engine/install/binaries/).
 
 ### Starting the Evidence devenv
 
@@ -71,10 +71,6 @@ docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm <image-name> <com
 ```
 
 ## Publishing the latest image to Docker Hub
-Currently the image is hosted on Dockerhub. To build and publish a new version, follow these steps
-1. Login to Dockerhub => `docker login`
+Currently the image is hosted on Docker Hub. To build and publish a new version, follow these steps
+1. Login to Docker Hub => `docker login`
 2. Build and push the image => `docker buildx build --platform linux/amd64,linux/arm64 -t evidencedev/devenv:latest . --push`
-
-For login credentials, see `EvidenceDev Dockerhub Admin` in 1password.  This is setup under `udesh@evidence.dev` (didn't think to create a google group for this at the time e.g devs@evidence.dev - will do so in the future - feel free to use it in the meantime). 
-
-We should consider hosting this in AWS with CD/CI setup to automatically publish new versions of the image from main
