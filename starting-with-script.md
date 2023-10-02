@@ -1,13 +1,13 @@
-## Running the development environment using a helper script (Alternative 2)
-Download `https://github.com/evidence-dev/docker-devenv/blob/main/start-devenv.sh`. 
+## Running the development environment using a helper script
+This documents an alternative way to start the Evidence `devenv` that is a wraps   `docker` commands described in the [main README](../README.md).
 
+* Download `https://github.com/evidence-dev/docker-devenv/blob/main/start-devenv.sh`. 
 * To create a **new Evidence project**, execute the following commands
 ``` 
     chmod +x <path-to>/start-devenv.sh
     cd <path-to-your-new-evidence-project-root>
     <path-to>/start-devenv.sh --init
 ```
-
 * To work with an **existing Evidence** project, execute the following commands.
 ``` 
     chmod +x <path-to>/start-devenv.sh
