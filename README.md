@@ -1,11 +1,17 @@
 # Docker Development Environment
 
-This repository builds the Evidence development environment Docker image. An instance container can be used as a development environment for Evidence projects using a mounted directory.  Using this container allows end users to develop Evidence sites without the need for installing any toolchains besides `Docker`.
+The Evidence Docker Development Evironment (devenv) is avaiable on [Dockerhub](https://hub.docker.com/repositories/evidencedev). 
 
-## Pre-requisites
+An instance of an `devenv` image can be used as a development environment for Evidence projects using a mounted directory. Using this container allows end users to develop Evidence sites without the need for installing any toolchains besides `Docker`.
+
+This is the repo that builds the Evidence `devenv` images.
+
+## Using the Evidence Docker Development Environment
+
+### Pre-requisites
 Docker tools are installed using [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended) OR using [binaries](https://docs.docker.com/engine/install/binaries/).
 
-## Running the development environment using Docker commands (Alternative 1)
+### Starting the Evidence devenv
 
 * Creating a **new Evidence project** from scratch using the Evidence project template
 ```
@@ -29,32 +35,19 @@ Docker tools are installed using [Docker Desktop](https://www.docker.com/product
     # - Any edits made in <path-to-your-evidence-project-root> should be reflected on the browser.
 ```
 
-Note: if you are running Evidence from a new Apple Silicon MacBook (or any machine with an `arm` chipset), you'll have to provide a `--platform linux/amd64` argument to Docker as well.
+Note: if you are running Evidence from a new Apple Silicon MacBook (or any machine with an `arm` chipset), you'll have to provide a `--platform linux/amd64` argument to Docker as well for emulation.
 
-## Running the development environment using a helper script (Alternative 2)
-Download `https://github.com/evidence-dev/docker-devenv/blob/main/start-devenv.sh`. 
+### Alternative running options
 
-* To create a **new Evidence project**, execute the following commands
-``` 
-    chmod +x <path-to>/start-devenv.sh
-    cd <path-to-your-new-evidence-project-root>
-    <path-to>/start-devenv.sh --init
-```
+#### Using a script to start the dev env
+If you'd rather not type out the docker commands, you have the option of starting the devenv with a [script](./running-with-script.md) detailed [here](./running-with-script.md).
 
-* To work with an **existing Evidence** project, execute the following commands.
-``` 
-    chmod +x <path-to>/start-devenv.sh
-    cd <path-to-your-existing-evidence-project-root>
-    <path-to>/start-devenv.sh
-```
+#### Using a smaller devenv imagge
+If you are not using DuckDB you can use a smaller devenv image by replacing the `evidencedev/devenv:latest` image with `evidencedev/devenv-lite:latest` in the above commands.
 
-Run `start-devenv.sh --help` for more details on using this script. 
+### Connecting to a Dababase from the development container
 
-As the project develops, we'll likely add more options to this script. This script simply masks all the options that need to be provided to `docker`.
-
-## Connecting to a Dababase from the development container
-
-If your database is hosted on your `host` machine, you'll have to ensure that the Database host is set to `host.docker.internal` either via the settings or your database config file (instead of `localhost`, `0.0.0.0`, etc).  For instance:
+* If your database is hosted on your `host` machine, you'll have to ensure that the Database host is set to `host.docker.internal` either via the settings or your database config file (instead of `localhost`, `0.0.0.0`, etc).  For instance:
 ```
 {
     "host": "host.docker.internal",
@@ -63,14 +56,16 @@ If your database is hosted on your `host` machine, you'll have to ensure that th
     "user": "yourUsername"
 }
 ```
+* If your database is hosted externally (e.g on the cloud), you'll have to ensure your docker container has permissions to access the outside world.
 
-If your database is hosted externally (e.g on the cloud), you'll have to ensure your docker container has permissions to access the outside world.
-## Stopping the running container
-Abort the terminal window  using `CTRL+C` or use the Docker [command line](https://docs.docker.com/engine/reference/commandline/stop/) or Docker Desktop to stop the running container.
+### Stopping the running container
+* `docker ps` to list all running containers, and copy the container ID of the running Evidence development environment container, and then run `docker stop <container-id>`.
 
-## Building and running the image locally 
-* This only applies to the development of this Docker image.
 
+## Development notes
+This section only applies if you are contributing to this project.
+
+### Testing the image locally
 ```
 docker build -t <image-name> .
 cd <path-to-your-evidence-project-root>
@@ -80,7 +75,7 @@ docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm <image-name> <com
 ## Publishing the latest image to Docker Hub
 Currently the image is hosted on Dockerhub. To build and publish a new version, follow these steps
 1. Login to Dockerhub => `docker login`
-2. Build and push the image => `docker buildx build --platform linux/amd64,linux/arm64 -t evidencedev/devenv:build . --push`
+2. Build and push the image => `docker buildx build --platform linux/amd64,linux/arm64 -t evidencedev/devenv:latest . --push`
 
 For login credentials, see `EvidenceDev Dockerhub Admin` in 1password.  This is setup under `udesh@evidence.dev` (didn't think to create a google group for this at the time e.g devs@evidence.dev - will do so in the future - feel free to use it in the meantime). 
 
