@@ -1,6 +1,6 @@
 # Docker Development Environment
 
-The Evidence Docker Development Evironment (devenv) image is available on [Docker Hub](https://hub.docker.com/repositories/evidencedev). 
+The Evidence Docker Development Environment (devenv) image is available on [Docker Hub](https://hub.docker.com/repositories/evidencedev). 
 
 The `devenv` image can be used as a development environment for Evidence projects by running it as a container with a mounted directory. Utilizing this container allows developers to work on Evidence sites without the need to install any additional toolchains other than `Docker`. For instance, there is no necessity to install `npm` or `node`.
 
@@ -11,7 +11,7 @@ This repository contains the Dockerfiles, the publishing actions, and usage docu
 ### Pre-requisites
 Ensure the Docker tool chain is installed via [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended) OR using [binaries](https://docs.docker.com/engine/install/binaries/).
 
-### Starting the Docker Evidence Development Evironment
+### Starting the Docker Evidence Development Environment
 
 #### Option 1: Create a **new Evidence project** from scratch using the Evidence project template:
 ```        
@@ -68,7 +68,7 @@ If you are not using DuckDB, and you have limited storage on your disk, you can 
 
 
 ## Alternative to Using the Evidence Devenv
-Github Codespaces are another way to setup an Evidence dev enviornment without installing `npm`, `node` etc.  See [Evidence installation docs](https://docs.evidence.dev/getting-started/install-evidence) for more information.
+Github Codespaces are another way to setup an Evidence dev environment without installing `npm`, `node` etc.  See [Evidence installation docs](https://docs.evidence.dev/getting-started/install-evidence) for more information.
 
 ## Development notes
 This section only applies if you are contributing to this repo.
