@@ -29,7 +29,7 @@ Ensure the Docker tool chain is installed via [Docker Desktop](https://www.docke
     cd <path-to-your-evidence-project-root>
     docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm evidencedev/devenv:latest
 ```
-* In this case, `<path-to-your-evidence-project-root>` should should contain an Evidence project.
+* In this case, `<path-to-your-evidence-project-root>` should contain an Evidence project.
 * You should see your site up when you point your browser to `localhost:3000`. 
 * Any edits made in `<path-to-your-evidence-project-root>` should be reflected on the browser.
 * If you are using Windows without PowerShell, you will need to replace `$(pwd)` with the full path to your Evidence project root directory or `%cd%`
