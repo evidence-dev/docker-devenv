@@ -4,7 +4,7 @@ set -e
 echo "Starting Evidence.dev development environment mounted on $(pwd) in the container."
 echo "Provided arguments => $@"
 
-RUN_DEV_COMMAND="npm run dev -- --host 0.0.0.0"
+RUN_DEV_COMMAND="npm run sources && npm run dev -- --host 0.0.0.0"
 COMMAND="npm install && $RUN_DEV_COMMAND"
 
 case $1 in
