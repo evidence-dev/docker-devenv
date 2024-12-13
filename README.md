@@ -18,6 +18,8 @@ Ensure the Docker tool chain is installed via [Docker Desktop](https://www.docke
         cd <path-to-your-evidence-project-root>
         docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm evidencedev/devenv:latest --init
 ```
+
+* Make sure your project is in the allowed directory (https://docs.docker.com/desktop/settings-and-maintenance/settings/#virtual-file-shares)
 * In this case, `<path-to-your-evidence-project-root>` should be an empty directory.
 * You should see the template site up when you point your browser to `localhost:3000`.
 * You should see new files, copied from the Evidence project template, in `<path-to-your-evidence-project-root>`.
@@ -29,6 +31,8 @@ Ensure the Docker tool chain is installed via [Docker Desktop](https://www.docke
     cd <path-to-your-evidence-project-root>
     docker run -v=$(pwd):/evidence-workspace -p=3000:3000 -it --rm evidencedev/devenv:latest
 ```
+
+* Make sure your project is in the allowed directory (https://docs.docker.com/desktop/settings-and-maintenance/settings/#virtual-file-shares)
 * In this case, `<path-to-your-evidence-project-root>` should contain an Evidence project.
 * You should see your site up when you point your browser to `localhost:3000`. 
 * Any edits made in `<path-to-your-evidence-project-root>` should be reflected on the browser.
